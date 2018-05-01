@@ -29,7 +29,7 @@ gcc:
 	$(MAKE) -C build-gcc install-target-libgcc
 
 grub:
-	mkdir -p gcc
+	mkdir -p grub
 	curl ftp://ftp.gnu.org/gnu/grub/grub-2.02.tar.xz > grub.tar.xz
 	tar -xvf grub.tar.xz -C grub --strip-components=1
 	cd grub && sh autogen.sh
