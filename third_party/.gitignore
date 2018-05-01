@@ -2,3 +2,9 @@ build-binutils
 build-gcc
 gcc
 cross
+gcc.xz
+*.tar.xz
+*.tar.gz
+*.xz
+binutils
+grub
