@@ -1,4 +1,4 @@
-NAME=mite
+NAME=myos
 PREFIX=i686-elf
 ROOT=$(shell pwd)
 BUILD_DIR=$(ROOT)/build
