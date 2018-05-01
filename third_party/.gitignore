@@ -1,0 +1,4 @@
+build-binutils
+build-gcc
+gcc
+cross
