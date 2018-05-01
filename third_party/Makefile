@@ -7,6 +7,7 @@ all: binutils gcc grub
 clean:
 	rm -rf build-binutils
 	rm -rf build-gcc
+	rm -rf build-grub
 	rm -rf grub
 	rm -rf *.tar.xz *.tar.gz
 
@@ -35,9 +36,10 @@ gcc:
 	$(MAKE) -C build-gcc install-target-libgcc
 
 grub:
-	mkdir -p grub
+	mkdir -p grub $(CROSS)
 	curl ftp://ftp.gnu.org/gnu/grub/grub-2.02.tar.xz > grub.tar.xz
 	tar -xvf grub.tar.xz -C grub --strip-components=1
 	cd grub && sh autogen.sh
 	cd grub && sh configure --disable-werror --prefix=$(CROSS)
 	$(MAKE) -C grub
+	$(MAKE) -C grub install
