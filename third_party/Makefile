@@ -7,7 +7,7 @@ all: binutils gcc grub
 binutils:
 	rm -rf build-binutils
 	mkdir -p build-binutils binutils $(CROSS)
-	curl https://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz > binutils.tar.gz
+	curl ftp://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz > binutils.tar.gz
 	tar -xvf binutils.tar.gz -C binutils --strip-components=1
 	cd build-binutils && ../binutils/configure --target=$(PREFIX) --prefix=$(CROSS) \
 	--with-sysroot --disable-nls --disable-werror
@@ -16,7 +16,7 @@ binutils:
 
 gcc:
 	mkdir -p gcc $(CROSS)
-	curl http://www.netgull.com/gcc/releases/gcc-7.3.0/gcc-7.3.0.tar.xz > gcc.tar.xz
+	curl ftp://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz > gcc.tar.xz
 	tar -xvf gcc.tar.xz -C gcc --strip-components=1
 	rm -rf build-gcc
 	mkdir -p build-gcc
