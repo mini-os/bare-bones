@@ -1,8 +1,14 @@
 CROSS=$(ROOT)/third_party/cross
 
-.PHONY: all binutils gcc grub
+.PHONY: clean all binutils gcc grub
 
 all: binutils gcc grub
+
+clean:
+	rm -rf build-binutils
+	rm -rf build-gcc
+	rm -rf grub
+	rm -rf *.tar.xz *.tar.gz
 
 binutils:
 	rm -rf build-binutils
@@ -33,5 +39,5 @@ grub:
 	curl ftp://ftp.gnu.org/gnu/grub/grub-2.02.tar.xz > grub.tar.xz
 	tar -xvf grub.tar.xz -C grub --strip-components=1
 	cd grub && sh autogen.sh
-	cd grub && sh configure --disable-werror --prefix=$(ROOT)/third_party/grub
+	cd grub && sh configure --disable-werror --prefix=$(CROSS)
 	$(MAKE) -C grub
